@@ -29,5 +29,11 @@ typedef struct
 double clamp(double&, double, double);  // eg. clamp(1.5, -1, 1) = 1
 double computeVel(double current_position, double last_position, double last_velocity, double duration);  // get current velocity
 double computeTorque(double current_position, double current_velocity, ServoCmd&);  // get torque
+inline double computeTorqueNew(double current_position, double current_velocity, ServoCmd& servo_cmd)
+{
+    return (servo_cmd.pos - current_position) * servo_cmd.posStiffness + 
+           (servo_cmd.vel - current_velocity) * servo_cmd.velStiffness + 
+           servo_cmd.torque;
+}
 
 #endif
