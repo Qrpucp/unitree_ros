@@ -3,7 +3,7 @@
     <!-- ros_control plugin -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/a1_gazebo</robotNamespace>
+            <robotNamespace>/unitree_a1</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
     </gazebo>
@@ -36,6 +36,17 @@
         <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
             <bodyName>trunk</bodyName>
             <topicName>/apply_force/trunk</topicName>
+        </plugin>
+    </gazebo>
+
+    <!-- simulates a 6 dof position and rate sensor -->
+    <gazebo>
+        <plugin name="p3d" filename="libgazebo_ros_p3d.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100.0</updateRate>
+            <bodyName>base</bodyName>
+            <topicName>torso_odom</topicName>
+            <frameName>world</frameName>
         </plugin>
     </gazebo>
 
@@ -171,8 +182,8 @@
         <self_collide>1</self_collide>
     </gazebo>
     <gazebo reference="FL_foot">
-        <mu1>0.6</mu1>
-        <mu2>0.6</mu2>
+        <mu1>0.75</mu1>
+        <mu2>0.75</mu2>
         <self_collide>1</self_collide>
         <material>Gazebo/DarkGrey</material>
         <kp  value="1000000.0"/>
@@ -199,8 +210,8 @@
         <self_collide>1</self_collide>
     </gazebo>
     <gazebo reference="FR_foot">
-        <mu1>0.6</mu1>
-        <mu2>0.6</mu2>
+        <mu1>0.75</mu1>
+        <mu2>0.75</mu2>
         <self_collide>1</self_collide>
         <material>Gazebo/DarkGrey</material>
         <kp  value="1000000.0"/>
@@ -227,8 +238,8 @@
         <self_collide>1</self_collide>
     </gazebo>
     <gazebo reference="RL_foot">
-        <mu1>0.6</mu1>
-        <mu2>0.6</mu2>
+        <mu1>0.75</mu1>
+        <mu2>0.75</mu2>
         <self_collide>1</self_collide>
         <material>Gazebo/DarkGrey</material>
         <kp  value="1000000.0"/>
@@ -255,8 +266,8 @@
         <self_collide>1</self_collide>
     </gazebo>
     <gazebo reference="RR_foot">
-        <mu1>0.6</mu1>
-        <mu2>0.6</mu2>
+        <mu1>0.75</mu1>
+        <mu2>0.75</mu2>
         <self_collide>1</self_collide>
         <material>Gazebo/DarkGrey</material>
         <kp  value="1000000.0"/>
