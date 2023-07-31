@@ -17,8 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(gazebo REQUIRED)
 
 catkin_package(
-    CATKIN_DEPENDS 
-    unitree_legged_msgs 
+    CATKIN_DEPENDS roscpp std_msgs tf geometry_msgs unitree_legged_msgs 
 )
 
 include_directories(
